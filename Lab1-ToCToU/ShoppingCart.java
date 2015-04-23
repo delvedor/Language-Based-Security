@@ -4,7 +4,8 @@ class ShoppingCart{
 	public static void main (String[] args) throws Exception{
 		Wallet wallet = new Wallet();
 		Pocket pocket = new Pocket();
-		System.out.println("Your balance is: "+wallet.getBalance());
+        int balance=wallet.getBalance();
+		System.out.println("Your balance is: "+balance);
 		System.out.println(Store.asString());
 
 		System.out.print("What do you want to buy? <insert a product name, e.g. pen> :");
@@ -12,14 +13,16 @@ class ShoppingCart{
 		System.out.println("product: "+productName);
 		int prodPrice=Store.products.get(productName);
 
-		if (wallet.getBalance() < prodPrice){
-			System.out.println("Sorry, you don´ t have enough money ");			
+		if (balance < prodPrice){
+			System.out.println("Sorry, you don' t have enough money ");			
 			System.exit(1);
 		}
 
-		wallet.setBalance(wallet.getBalance() - prodPrice);
+		//wallet.setBalance(balance - prodPrice);
+        wallet.safeWithdraw(prodPrice);
 		System.out.println("Your new balance is: "+wallet.getBalance());
 		pocket.addProduct(productName);
+        wallet.close();
 
 	}
 

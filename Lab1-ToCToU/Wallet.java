@@ -1,12 +1,15 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 
 public class Wallet {
    /**
     * The RandomAccessFile of the wallet file
     */  
    private RandomAccessFile file;
+   private FileLock lock;
 
    /**
     * Creates a Wallet object
@@ -15,6 +18,8 @@ public class Wallet {
     */
     public Wallet () throws Exception {
 	   this.file = new RandomAccessFile(new File("wallet.txt"), "rw");
+       FileChannel ch=this.file.getChannel();
+       //this.lock=ch.lock();
     }
 
    /**
@@ -42,6 +47,21 @@ public class Wallet {
     * Closes the RandomAccessFile in this.file
     */ 
     public void close() throws Exception { 
-	   this.file.close();
+       //this.lock.release();
+       this.file.close();
+    }
+    
+    /**
+    * Make a safe withdraw from the wallet
+    */
+    public void safeWithdraw(int valueToWithdraw) throws Exception{
+        FileChannel ch=this.file.getChannel();
+        FileLock lock=ch.lock();
+        if (getBalance()>=valueToWithdraw){
+            setBalance(getBalance()-valueToWithdraw);
+        } else {
+            System.out.println("Error, you don' t have enough money for this product");
+        }
+        lock.release();        
     }
 }
