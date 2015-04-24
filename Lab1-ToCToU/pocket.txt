@@ -16,3 +16,8 @@ pen
 candies
 car
 candies
+candies
+pen
+book
+book
+candies
