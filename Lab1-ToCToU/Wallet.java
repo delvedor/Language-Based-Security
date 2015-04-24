@@ -9,7 +9,6 @@ public class Wallet {
    * The RandomAccessFile of the wallet file
    */
   private RandomAccessFile file;
-  //private FileLock lock;
   private FileChannel fch;
 
   /**
@@ -20,7 +19,6 @@ public class Wallet {
   public Wallet () throws Exception {
     this.file = new RandomAccessFile(new File("wallet.txt"), "rw");
     this.fch = this.file.getChannel();
-    //this.lock=ch.lock();
   }
 
   /**
@@ -67,15 +65,13 @@ public class Wallet {
   */
   public int getBalanceNoLock() throws IOException {
     this.file.seek(0);
-    String total = this.file.readLine();
-    return Integer.parseInt(total);
+    return Integer.parseInt(this.file.readLine());
   }
 
   /**
    * Closes the RandomAccessFile in this.file
    */
   public void close() throws Exception {
-    //this.lock.release();
     this.file.close();
   }
 
