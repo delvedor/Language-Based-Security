@@ -17,11 +17,10 @@ class ShoppingCart {
 			System.out.println("Sorry, you don' t have enough money ");
 			System.exit(1);
 		}
-
 		//wallet.setBalance(balance - prodPrice);
 		wallet.safeWithdraw(prodPrice);
-		System.out.println("Your new balance is: " + wallet.getBalance());
 		pocket.addProduct(productName);
+		pocket.close();
 		wallet.close();
 
 	}
