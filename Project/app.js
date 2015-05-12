@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var basm = require('./routes/BASM/basm');
 var sqlinjection = require('./routes/SQLInjection/sqlinjection');
 var xss = require('./routes/XSS/xss');
+var ssjs = require('./routes/SSJS/ssjs');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use('/users', users);
 app.use('/basm', basm);
 app.use('/sqlinjection', sqlinjection);
 app.use('/xss', xss);
+app.use('/ssjs', ssjs);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

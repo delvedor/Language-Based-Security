@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <link href="stylesheets/lib/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="stylesheets/ssjs.css" rel="stylesheet" media="all">
+		<title>SSJS</title>
+	</head>
+	<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 title">
+				<h1>Server Side Javascript Injection</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 age">
+				<h3>Future Age</h3>
+				<p>Write the year were you born:</p>
+				<form role="form" method="post">
+                    <input name="year" type="text" class="form-control" placeholder="year" required>
+                    <button type="submit" class="btn form-control">Submit</button>
+                </form>
+			</div>
+		</div>
+		<div class="row" style="display: <%= display %>">
+			<div class="col-md-6 col-md-offset-3 future">
+				<p>In the year 2050, you will be:</p>
+				<p><%= message %></p>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

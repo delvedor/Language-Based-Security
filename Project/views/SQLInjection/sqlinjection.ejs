@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <link href="stylesheets/lib/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="stylesheets/sqlinjection.css" rel="stylesheet" media="all">
+        <title>SQL Injection</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 title">
+                    <h1>SQL Injection</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div id="divLogin" class="col-md-4 col-md-offset-4">
+                    <form id="form-login" role="form" method="post">
+                        <h3>Username</h3>
+                        <input name="user" type="text" class="form-control form-control-mod" placeholder="Username" required>
+                        <h3>Password</h3>
+                        <input name="password" type="password" class="form-control form-control-mod" placeholder="Password" required>
+                        <button type="submit" class="btn form-control">Sign in</button>
+                    </form>
+                </div>
+                <div class="col-md-4 col-md-offset-4 message" style="display: <%= display %>">
+                    <p><%= message %></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

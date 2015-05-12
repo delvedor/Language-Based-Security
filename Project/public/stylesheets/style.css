@@ -1,8 +1,31 @@
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #F7F7F7;
 }
 
-a {
-  color: #00B7FF;
+.title,
+.developers,
+.pages {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+}
+
+.title {
+    text-align: center;
+    color: #616161;
+}
+
+.developers {
+    font-size: 1.2em;
+}
+
+.pages {
+    font-size: 1.2em;
 }

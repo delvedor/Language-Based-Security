@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= title %></title>
-		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <link href="stylesheets/lib/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="stylesheets/style.css" rel="stylesheet" media="all">
+		<title>Web Application Security</title>
 	</head>
 	<body>
-		<h1><%= title %></h1>
-		<p>Language Security Project</p>
-		<p>Tomas Della Vedova</p>
-		<p>Davide Poveromo</p>
+		<div class="container">
+			<div class="row">
+				<div class=" col-md-8 col-md-offset-2 title">
+					<h1>Web Application Security</h1>
+					<h3>Language Based Security Project</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class=" col-md-8 col-md-offset-2 pages">
+					<p><strong>Pages</strong></p>
+					<ul>
+						<li><a href="#">XSS</a> <em>(Cross-Site Scripting)</em></li>
+						<li><a href="#">BASM</a> <em>(Broken Authentication and Session Managment)</em></li>
+						<li><a href="sqlinjection">SQLInjection</a> <em>(Sql Injection)</em></li>
+						<li><a href="ssjs">SSJS</a> <em>(Server Side Javascript Injection)</em></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class=" col-md-8 col-md-offset-2 developers">
+					<p><strong>Repository</strong></p>
+					<ul>
+						<li><a href="https://github.com/delvedor/Language-Based-Security/tree/master/Project" target="_blank">Project - GitHub</a></li>
+					</ul>
+					<p><strong>Developers</strong></p>
+					<ul>
+						<li>Tomas Della Vedova</li>
+						<ul>
+							<li><a href="https://twitter.com/delvedor" target="_blank">Twitter</a></li>
+							<li><a href="https://github.com/delvedor" target="_blank">GitHub</a></li>
+						</ul>
+						<li>Davide Poveromo</li>
+						<ul>
+							<li><a href="https://twitter.com/ilPove" target="_blank">Twitter</a></li>
+							<li><a href="https://github.com/podak" target="_blank">GitHub</a></li>
+						</ul>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
