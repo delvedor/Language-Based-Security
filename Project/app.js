@@ -28,6 +28,17 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    name: "sessione",
+    secret: 'biu4758bwog94oqnpehjrhp',
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60
+    },
+    rolling: true
+}));
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/basm', basm);
