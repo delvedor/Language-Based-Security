@@ -1,0 +1,60 @@
+span.message-icon {
+    font-size: 100px;
+}
+
+div.jumbotron {
+    position: relative;
+    overflow: hidden;
+}
+
+div.jumbotron div.img_back {
+    background-color: #ccc;
+    background-image: url("img_ref/megaphone.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    /*background-blend-mode: multiply;*/
+    
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: -80px;
+    width: 150%;
+    height: 150%;
+}
+
+div.jumbotron div.top-cont {
+    z-index: 2 !important;
+    position: relative;
+}
+
+div.divider {
+    background-color: #ededed;
+}
+
+div.message {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.top-cont h1 {
+    color: #efefef;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+div.top-cont p {
+    color: #cacaca;
+}
+
+label.userLogged {
+    color: #fff;
+    margin-right: 10px;
+}

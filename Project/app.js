@@ -30,14 +30,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    name: "sessione",
+    name: "session",
     secret: 'biu4758bwog94oqnpehjrhp',
     resave: true,
     saveUninitialized: true,
     cookie: {
-        maxAge: 1000 * 60 * 60
+        maxAge: 1000 * 60 * 60,
+        httpOnly: false,
+        secure: false
     },
-    rolling: true
+    rolling: false
 }));
 
 app.use('/', routes);
