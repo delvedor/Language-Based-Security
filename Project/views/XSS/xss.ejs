@@ -96,7 +96,7 @@
 
     	<div id="domXSS"> </div>
     	<script>
-    		var url=unescape(document.URL);
+    		var url=document.baseURI;
     		$("div#domXSS").html("The current url is:"+url);
     	</script>
  	
