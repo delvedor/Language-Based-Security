@@ -39,7 +39,7 @@ var logoutFromScream = function(req, res, next) {
         req.session.user = "";
     }
     next();
-}
+};
 
 module.exports.loginToScream = loginToScream;
 module.exports.logoutFromScream = logoutFromScream;
