@@ -19,17 +19,28 @@ router.get('/', function(req, res) {
  * @param  {Object}   req  [request params]
  * @param  {Object}   res  [response params]
  * @render {ssjs}          [page]
+ *
+ * The following code parses as a integer the req.body.year and checks if is a integer.
+ * If so, it executes the if branch, otherwise it executes the else branch.
  */
 router.post('/', function(req, res) {
-    var year = eval("year = (" + req.body.year + ")");
-    var date = new Date();
+    var year = parseInt(req.body.year, 10);
 
-    var futureAge = 2050 - year;
+    if (year || year === 0) {
+        var date = new Date();
+        var futureAge = 2050 - year;
 
-    res.render('SSJS/ssjs', {
-        display: 'block',
-        message: futureAge
-    });
+        res.render('SSJS/ssjs', {
+            display: 'block',
+            message: 'In the year 2050, you will be: ' + futureAge
+        });
+
+    } else {
+        res.render('SSJS/ssjs', {
+            display: 'block',
+            message: 'Please insert a number.'
+        });
+    }
 });
 
 module.exports = router;
