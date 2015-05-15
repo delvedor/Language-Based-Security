@@ -79,7 +79,7 @@
     					<span class="glyphicon glyphicon-bullhorn message-icon" aria-hidden="true"></span>	
     				</div>
     				<div class="col-md-10">
-    					<p>Message by <author><%- messages[i].author %></author></p>
+    					<p>Message by <author><%= messages[i].author %></author></p>
     					<br/>
     					<p><%= messages[i].message %></p>
     					<a href="/xss/mexForYou?auth=<%= messages[i].author %>&msgID=<%= messages[i].id%>"> Share </a>
@@ -96,7 +96,7 @@
 
     	<div id="domXSS"> </div>
     	<script>
-    		var url=unescape(document.URL);
+    		// using the JQuery function $(..).html() the parameter passed to the function is automatically escaped
     		$("div#domXSS").html("The current url is:"+url);
     	</script>
  	
