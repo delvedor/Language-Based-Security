@@ -96,8 +96,10 @@
 
     	<div id="domXSS"> </div>
     	<script>
-    		// using the JQuery function $(..).html() the parameter passed to the function is automatically escaped
-    		$("div#domXSS").html("The current url is:"+url);
+    		// to fix the vulnerability we replace $(..).html() with $(..).text(), in this way
+    		// the parameter passed is escaped before to be moved inside the div
+    		var url=document.baseURI;
+    		$("div#domXSS").text("The current url is:"+url);
     	</script>
  	
 	</body>
