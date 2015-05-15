@@ -22,8 +22,8 @@ var queryDB = function(user, password, next) {
 
     connection.connect();
 
-    // SQL vulnerable command
-    var sql = "SELECT * FROM Users WHERE User = '" + user + "' AND Password = '" + password + "'; ";
+    // SQL not vulnerable command
+    var sql = "SELECT * FROM Users WHERE User = " + connection.escape(user) + " AND Password = " + connection.escape(password) + "; ";
 
     connection.query(sql, function(err, rows, fields) {
         sq.setCheckSQL(false);
