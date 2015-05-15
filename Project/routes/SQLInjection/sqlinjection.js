@@ -5,6 +5,8 @@ var checkSQL = false;
 var user = "";
 var ipsTimeout = {}; // object with all timeouts
 var ipsError = {}; // object with all ips
+var message = "";
+var display = "";
 
 /**
  * GET request
@@ -14,17 +16,16 @@ var ipsError = {}; // object with all ips
  */
 router.get('/', function(req, res) {
     if (ipsError[req.ip] && ipsError[req.ip] > 4) {
-        res.render('SQLInjection/sqlinjection', {
-            display: 'block',
-            message: 'You have made too many login attempts, wait 10 minutes before try again.'
-        });
-
+        message = 'You have made too many login attempts, wait 10 minutes before try again.';
+        display = 'block';
     } else {
-        res.render('SQLInjection/sqlinjection', {
-            display: 'none',
-            message: ''
-        });
+        message = '';
+        display = 'none';
     }
+    res.render('SQLInjection/sqlinjection', {
+        display: display,
+        message: message
+    });
 });
 
 /**
@@ -39,20 +40,20 @@ router.post('/', checkIp, queryToDb, function(req, res) {
     if (checkSQL) {
         if (ipsError[req.ip])
             delete ipsError[req.ip];
-        res.render('SQLInjection/sqlinjection', {
-            display: 'block',
-            message: 'Welcome, ' + user + '!'
-        });
+        message = 'Welcome ' + user + '.';
+        display = 'block';
     } else {
         if (ipsError[req.ip])
             ipsError[req.ip] = ipsError[req.ip] + 1;
         else
             ipsError[req.ip] = 1;
-        res.render('SQLInjection/sqlinjection', {
-            display: 'block',
-            message: 'User not found!'
-        });
+        message = 'User not found!';
+        display = 'block';
     }
+    res.render('SQLInjection/sqlinjection', {
+        display: display,
+        message: message
+    });
 });
 
 /**

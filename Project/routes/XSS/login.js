@@ -4,7 +4,7 @@ var dbConf = require('../../dbConf');
 var loginToScream = function(req, res, next) {
     var user = req.body.username;
     var password = req.body.password;
-    var session = req.session
+    var session = req.session;
     var connection = mysql.createConnection({
         host: dbConf.dbHost,
         user: dbConf.dbUser,
@@ -39,7 +39,7 @@ var logoutFromScream = function(req, res, next) {
         req.session.user = "";
     }
     next();
-}
+};
 
 module.exports.loginToScream = loginToScream;
 module.exports.logoutFromScream = logoutFromScream;

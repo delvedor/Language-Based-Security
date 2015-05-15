@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var message = "";
 
 /**
  * GET request
@@ -29,18 +30,14 @@ router.post('/', function(req, res) {
     if (year || year === 0) {
         var date = new Date();
         var futureAge = 2050 - year;
-
-        res.render('SSJS/ssjs', {
-            display: 'block',
-            message: 'In the year 2050, you will be: ' + futureAge
-        });
-
+        message = 'In the year 2050, you will be: ' + futureAge;
     } else {
-        res.render('SSJS/ssjs', {
-            display: 'block',
-            message: 'Please insert a number.'
-        });
+        message = 'Please insert a number.';
     }
+    res.render('SSJS/ssjs', {
+        display: 'block',
+        message: message
+    });
 });
 
 module.exports = router;

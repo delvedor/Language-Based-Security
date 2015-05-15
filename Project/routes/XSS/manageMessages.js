@@ -61,7 +61,7 @@ var selectMessage = function(req, res, next) {
     });
 
     connection.end();
-}
+};
 
 var addMessage = function(req, res, next) {
     var connection = mysql.createConnection({

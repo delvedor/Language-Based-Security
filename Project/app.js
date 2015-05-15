@@ -9,7 +9,6 @@ var helmet = require('helmet');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var basm = require('./routes/BASM/basm');
 var sqlinjection = require('./routes/SQLInjection/sqlinjection');
 var xss = require('./routes/XSS/xss');
 var ssjs = require('./routes/SSJS/ssjs');
@@ -46,7 +45,6 @@ app.use(express.static(path.join(__dirname, 'public')));
  *   In addition to that, setting httpOnly to true the session-cookie will be available only 
  *   through http request, so it si not accessible from the client javascript code.  
  */
-
 app.use(session({
     name: "session",
     secret: 'biu4758bwog94oqnpehjrhp',
@@ -62,7 +60,6 @@ app.use(session({
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/basm', basm);
 app.use('/sqlinjection', sqlinjection);
 app.use('/xss', xss);
 app.use('/ssjs', ssjs);

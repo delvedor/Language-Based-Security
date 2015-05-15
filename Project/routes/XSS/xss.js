@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var loginManager = require('./login.js')
+var loginManager = require('./login.js');
 var messagesManager = require('./manageMessages.js');
 
 /**
@@ -10,7 +10,6 @@ var messagesManager = require('./manageMessages.js');
  * @param  {Function} next [next function]
  * @render {XSS}  [page]
  */
-
 router.get('/', messagesManager.loadAllMessages, function(req, res, next) {
     var sess = req.session;
     res.render('XSS/xss', {
@@ -37,13 +36,11 @@ router.get('/mexForYou', messagesManager.selectMessage, function(req, res, next)
 
 router.post('/login', loginManager.loginToScream, function(req, res, next) {
     var sess = req.session;
-    //console.log(sess);
     res.redirect('/xss');
 });
 
 router.post('/logout', loginManager.logoutFromScream, function(req, res, next) {
     var sess = req.session;
-    //console.log(sess);
     res.redirect('/xss');
 });
 
