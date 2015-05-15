@@ -81,7 +81,7 @@
     				<div class="col-md-10">
     					<p>Message by <author><%- messages[i].author %></author></p>
     					<br/>
-    					<p><%- messages[i].message %></p>
+    					<p><%= messages[i].message %></p>
     					<a href="/xss/mexForYou?auth=<%= messages[i].author %>&msgID=<%= messages[i].id%>"> Share </a>
     				</div>
     			</div>
