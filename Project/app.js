@@ -39,6 +39,14 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ *   Setting the rolling parameter to true it will change the session-cookie value every time
+ *   that the page is refreshed or that a new page is accessed.
+ *   In that way we can prevent attacks like the session hijacking.
+ *   In addition to that, setting httpOnly to true the session-cookie will be available only 
+ *   through http request, so it si not accessible from the client javascript code.  
+ */
+
 app.use(session({
     name: "session",
     secret: 'biu4758bwog94oqnpehjrhp',
@@ -46,10 +54,10 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         maxAge: 1000 * 60 * 60,
-        httpOnly: false,
-        secure: false
+        httpOnly: true, // make available the session-cookie only through http request
+        secure: false // the session-cookie is not only accessible through https
     },
-    rolling: false
+    rolling: true // for every request change the session cookie
 }));
 
 app.use('/', routes);
