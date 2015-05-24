@@ -8,7 +8,6 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var basm = require('./routes/BASM/basm');
 var sqlinjection = require('./routes/SQLInjection/sqlinjection');
 var xss = require('./routes/XSS/xss');
 var ssjs = require('./routes/SSJS/ssjs');
@@ -44,7 +43,6 @@ app.use(session({
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/basm', basm);
 app.use('/sqlinjection', sqlinjection);
 app.use('/xss', xss);
 app.use('/ssjs', ssjs);
